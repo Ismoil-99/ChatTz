@@ -1,5 +1,6 @@
 package com.android.chattz.data.request
 
+import com.android.chattz.domain.model.GetUser
 import com.android.chattz.domain.model.Status
 import retrofit2.Response
 import retrofit2.http.Field
@@ -15,4 +16,11 @@ interface RequestChats {
         @Field("phone") phone: String,
         @Field("password") password:String
     ): Response<Status>
+
+    @FormUrlEncoded
+    @POST("/login")
+    suspend fun singIn(
+        @Field("phone") name:String,
+        @Field("password") phone: String,
+    ): Response<GetUser>
 }

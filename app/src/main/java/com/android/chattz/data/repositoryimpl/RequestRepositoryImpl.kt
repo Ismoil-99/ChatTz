@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.android.chattz.data.request.RequestChats
+import com.android.chattz.domain.model.GetUser
 import com.android.chattz.domain.model.Status
 import com.android.chattz.domain.model.User
 import com.android.chattz.domain.repository.RequestRepository
@@ -35,5 +36,28 @@ class RequestRepositoryImpl @Inject constructor(private val requestChats: Reques
                 }
             }
             return data
+    }
+
+    override fun signInUser(phone: String, pasword: String): LiveData<GetUser> {
+        val data = MutableLiveData<GetUser>()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = requestChats.singIn(phone,pasword)
+                if (response.isSuccessful) {
+                    if (response.body() != null && response.code() == 200) {
+                        data.postValue(response.body())
+                    } else {
+                        data.postValue(response.body())
+                    }
+                } else {
+                    data.postValue(response.body())
+                }
+            } catch (e: HttpException) {
+                Log.d("error1", e.message.toString())
+            } catch (e: Throwable) {
+                Log.d("error2", e.message.toString())
+            }
+        }
+        return data
     }
 }

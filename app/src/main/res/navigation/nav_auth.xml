@@ -8,13 +8,12 @@
     <fragment
         android:id="@+id/singInFragment"
         android:name="com.android.chattz.presentation.ui.auth.singin.SingInFragment"
-        android:label="SingInFragment"
         tools:layout="@layout/fragment_singin"
         />
     <fragment
         android:id="@+id/singUpFragment"
         android:name="com.android.chattz.presentation.ui.auth.singup.SingUpFragment"
-        android:label="SingUpFragment"
+        android:label="@string/sing_up"
         tools:layout="@layout/fragment_singup"
         />
 
