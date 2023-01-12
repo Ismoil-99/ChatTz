@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ChatTz</string>
+    <string name="name_singin">Войти</string>
+    <string name="put_your_name">Введите свое имя</string>
+    <string name="put_your_password">введите пароль</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="sing_up">Регистрация</string>
+    <string name="put_your_number">введите номер</string>
+</resources>
