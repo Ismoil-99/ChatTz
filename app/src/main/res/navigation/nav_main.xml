@@ -3,11 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_auth"
-    app:startDestination="@id/chatFragment">
+    app:startDestination="@id/chat">
     <fragment
-        android:id="@+id/chatFragment"
+        android:id="@+id/chat"
         android:name="com.android.chattz.presentation.ui.main.chat.ChatFragment"
         android:label="ChatFragment"
         tools:layout="@layout/fragment_chat"
         />
+    <fragment
+        android:id="@+id/option"
+        android:name="com.android.chattz.presentation.ui.main.option.OptionFragment"
+        android:label="OptionFragment" />
+    <fragment
+        android:id="@+id/contact"
+        android:name="com.android.chattz.presentation.ui.main.contact.ContactFragment"
+        android:label="ContactFragment" />
 </navigation>

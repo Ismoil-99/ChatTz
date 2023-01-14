@@ -1,7 +1,6 @@
 package com.android.chattz.presentation.ui.auth.singin
 
-import android.util.Log
-import android.widget.Toast
+
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -17,9 +16,7 @@ import com.android.chattz.utils.ERROR
 import com.android.chattz.utils.TOKEN
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 
 @AndroidEntryPoint
@@ -41,7 +38,6 @@ class SingInFragment:BaseFragment<FragmentSinginBinding>(R.layout.fragment_singi
                     binding.selectPassword.text.toString()
                 ).observe(requireActivity()){
                     if (it.status == ERROR){
-                        Log.d("result","$it")
                         MaterialAlertDialogBuilder(requireActivity())
                             .setMessage(it.message)
                             .setPositiveButton("Ок") { dialog, which ->
@@ -50,7 +46,6 @@ class SingInFragment:BaseFragment<FragmentSinginBinding>(R.layout.fragment_singi
                             .show()
                     }
                     if (it.status == "success"){
-                        Log.d("result","$it")
                         activityNavController().navigateSafely(R.id.action_global_to_nav_main)
                         saveToken.putString(TOKEN,it.accessToken)
                         saveToken.apply()

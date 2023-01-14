@@ -1,7 +1,6 @@
 package com.android.chattz.presentation.ui.auth.singup
 
-import android.util.Log
-import android.widget.Toast
+
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -10,11 +9,9 @@ import com.android.chattz.R
 import com.android.chattz.databinding.FragmentSingupBinding
 import com.android.chattz.domain.model.User
 import com.android.chattz.presentation.base.BaseFragment
-import com.android.chattz.presentation.extesions.navigateSafely
 import com.android.chattz.presentation.extesions.showActionBar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint

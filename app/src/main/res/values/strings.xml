@@ -7,4 +7,9 @@
     <string name="sing_up">Регистрация</string>
     <string name="put_your_number">введите номер</string>
     <string name="welcome">Добро пожаловать</string>
+    <string name="chat">Чаты</string>
+    <string name="contact">Контакты</string>
+    <string name="option">Настройки</string>
+    <string name="name_content">Имя</string>
+    <string name="phone_content">Телефон</string>
 </resources>
