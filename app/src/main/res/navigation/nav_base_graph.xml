@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_base_graph"
-    >
+    android:id="@+id/nav_base_graph">
     <fragment
         android:id="@+id/nav_auth"
         android:name="com.android.chattz.presentation.ui.auth.FlowAuthFragment"
@@ -16,10 +15,27 @@
         android:label="FlowMainFragment"
         tools:layout="@layout/fragment_flow_main"
         />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.android.chattz.presentation.ui.main.message.MessageFragment"
+        android:label="MessageFragment"
+        tools:layout="@layout/fragment_message"
+        >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="phone"
+            app:argType="string" />
+    </fragment>
     <action
         android:id="@+id/action_global_to_nav_main"
         app:destination="@+id/nav_main"
         app:popUpTo="@navigation/nav_auth"
         app:popUpToInclusive="true"
+        />
+    <action
+        android:id="@+id/to_message"
+        app:destination="@+id/messageFragment"
         />
 </navigation>

@@ -127,4 +127,50 @@ class RequestRepositoryImpl @Inject constructor(private val requestChats: Reques
         }
         return data
     }
+
+    override fun sendSms(sendMessageModel: SendMessageModel): LiveData<MessageStatus> {
+        val data = MutableLiveData<MessageStatus>()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = requestChats.sendSms(sendMessageModel)
+                if (response!!.isSuccessful) {
+                    if (response.body() != null && response.code() == 200) {
+                        data.postValue(response.body())
+                    } else {
+                        data.postValue(response.body())
+                    }
+                } else {
+                    data.postValue(response.body())
+                }
+            } catch (e: HttpException) {
+                Log.d("error1", e.message.toString())
+            } catch (e: Throwable) {
+                Log.d("error2", e.message.toString())
+            }
+        }
+        return data
+    }
+
+    override fun getDataSms(phone: String): LiveData<FetchSmsModel> {
+        val data = MutableLiveData<FetchSmsModel>()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = requestChats.getDataSms(phone)
+                if (response!!.isSuccessful) {
+                    if (response.body() != null && response.code() == 200) {
+                        data.postValue(response.body())
+                    } else {
+                        data.postValue(response.body())
+                    }
+                } else {
+                    data.postValue(response.body())
+                }
+            } catch (e: HttpException) {
+                Log.d("error1", e.message.toString())
+            } catch (e: Throwable) {
+                Log.d("error2", e.message.toString())
+            }
+        }
+        return data
+    }
 }

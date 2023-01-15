@@ -1,9 +1,6 @@
 package com.android.chattz.data.request
 
-import com.android.chattz.domain.model.GetUser
-import com.android.chattz.domain.model.GetUserAll
-import com.android.chattz.domain.model.ListContactsModel
-import com.android.chattz.domain.model.Status
+import com.android.chattz.domain.model.*
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -26,4 +23,16 @@ interface RequestChats {
 
     @POST("/contacts/fetch")
     suspend fun getContactsList():Response<ListContactsModel>
+
+    @POST("/chats/send")
+    suspend fun sendSms(
+        @Body sendMessageModel: SendMessageModel
+        ):Response<MessageStatus>
+
+    @FormUrlEncoded
+    @POST("/chats/fetch")
+    suspend fun getDataSms(
+        @Field("phone") phone:String
+    ):Response<FetchSmsModel>
+
 }

@@ -10,7 +10,7 @@ import com.android.chattz.R
 import com.android.chattz.databinding.ListContactsBinding
 import com.android.chattz.domain.model.User
 
-class ListAdapterContacts(): ListAdapter<User, ListAdapterContacts.ContactsViewHolder>(FinishDiffUtil()){
+class ListAdapterContacts(private val openChat:(User) -> Unit,): ListAdapter<User, ListAdapterContacts.ContactsViewHolder>(FinishDiffUtil()){
     class FinishDiffUtil : DiffUtil.ItemCallback<User>(){
         override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem.phone == newItem.phone
@@ -27,6 +27,9 @@ class ListAdapterContacts(): ListAdapter<User, ListAdapterContacts.ContactsViewH
             binding.apply {
                 nameContact.text = test.name
                 phoneUser.text = test.phone
+            }
+            itemView.setOnClickListener {
+                openChat.invoke(test)
             }
         }
     }

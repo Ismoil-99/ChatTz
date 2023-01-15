@@ -12,4 +12,5 @@
     <string name="option">Настройки</string>
     <string name="name_content">Имя</string>
     <string name="phone_content">Телефон</string>
+    <string name="name_sms">Написать сообщение</string>
 </resources>

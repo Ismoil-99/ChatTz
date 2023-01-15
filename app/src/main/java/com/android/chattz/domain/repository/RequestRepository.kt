@@ -9,4 +9,6 @@ interface RequestRepository {
     fun getUserAll():LiveData<GetUserAll>
     fun saveContact(contact:String):LiveData<Status>
     fun getListContact():LiveData<ListContactsModel>
+    fun sendSms(sendMessageModel: SendMessageModel):LiveData<MessageStatus>
+    fun getDataSms(phone: String):LiveData<FetchSmsModel>
 }
